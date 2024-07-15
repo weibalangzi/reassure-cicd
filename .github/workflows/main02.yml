@@ -25,7 +25,7 @@ jobs:
           cache: 'yarn'
 
       - name: Install and build
-        run: yarn install --immutable
+        run: $HOME/.yarn/bin/yarn install --immutable
     
       - name: Set execute permission for script
         run: chmod +x ./reassure-tests.sh
