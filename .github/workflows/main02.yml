@@ -1,0 +1,5 @@
+- name: Run performance testing script
+  run: ./reassure-tests.sh
+
+- name: Run Danger.js
+  run: yarn danger ci
