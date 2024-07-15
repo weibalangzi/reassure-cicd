@@ -27,8 +27,11 @@ jobs:
       - name: Install and build
         run: yarn install --immutable
     
+      - name: Set execute permission for script
+        run: chmod +x ./reassure-tests.sh
+
       - name: Run performance tests
-        run: reassure-tests.sh
+        run: ./reassure-tests.sh
 
       - name: Run Danger.js
         run: yarn danger ci
