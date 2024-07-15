@@ -1,5 +1,44 @@
-- name: Run performance testing script
-  run: ./reassure-tests.sh
+name: Main
 
-- name: Run Danger.js
-  run: yarn danger ci
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: ['**']
+
+jobs:
+  build-validate-pref-tests:
+    name: Build, validate & run performance tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+          cache: 'yarn'
+
+      - name: Install and build
+        run: yarn install --immutable
+
+      - name: Validate TypeScript
+        run: yarn typecheck && yarn typecheck:test-app
+
+      - name: Validate ESLint
+        run: yarn lint && yarn lint:deps
+
+      - name: Run tests
+        run: yarn test && yarn test:test-app
+
+      - name: Run performance tests
+        run: cd test-apps/native && ./reassure-tests.sh
+
+      - name: Run Danger.js
+        run: yarn danger ci
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
