@@ -26,7 +26,7 @@ jobs:
       - name: Install and build
         run: |
           if command -v yarn &> /dev/null; then
-            yarn install --frozen-lockfile
+            yarn install --mode=update-lockfile
           else
             npm ci
           fi
