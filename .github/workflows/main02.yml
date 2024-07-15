@@ -24,7 +24,7 @@ jobs:
           node-version: 20.x
 
       - name: Install and build
-        run: yarn install --immutable
+        run: yarn install
     
       - name: Set execute permission for script
         run: chmod +x ./reassure-tests.sh
