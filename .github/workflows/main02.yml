@@ -25,10 +25,10 @@ jobs:
 
       - name: Install and build
         run: |
-          if [ -f yarn.lock ]; then
-            yarn install --frozen-lockfile
+          if command -v yarn &> /dev/null; then
+            yarn install --immutable
           else
-            yarn install
+            npm ci
           fi
     
       - name: Set execute permission for script
