@@ -4,4 +4,5 @@ import { dangerReassure } from 'reassure';
 
 dangerReassure({
   inputFilePath: path.join(__dirname, './.reassure/output.md'),
+  debug: true
 });
