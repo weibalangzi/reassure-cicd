@@ -5,6 +5,6 @@ configure({
   testingLibrary: 'react-native',
   runs: 3,
   warmupRuns: 2,
-  verbose: true,
+  verbose: false,
   outputFile: 'reassure2'
 });
