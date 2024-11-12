@@ -6,5 +6,5 @@ configure({
   runs: 3,
   warmupRuns: 2,
   verbose: true,
-  outputFile: 'measureRender',
+  outputFile: '.reassure/current.perf',
 });
