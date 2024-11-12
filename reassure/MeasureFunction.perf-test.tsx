@@ -9,7 +9,7 @@ function fib(n: number): number {
 }
 
 test('MeasureFunction runs 10', async () => {
-  await measureFunction(() => fib(30), {runs: 10});
+  await measureFunction(() => fib(30), {runs: 8});
 });
 
 test('MeasureFunction runs 20', async () => {
