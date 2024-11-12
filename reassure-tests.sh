@@ -13,7 +13,7 @@ git switch "$BASELINE_BRANCH"
 pushd yarn install && yarn turbo run build && popd
 
 yarn install
-yarn reassure --baseline
+yarn reassure --baseline --verbose
 
 # Gather current perf measurements & compare results
 git stash # Get rid of any local changes
