@@ -5,6 +5,6 @@ configure({
   testingLibrary: 'react-native',
   runs: 3,
   warmupRuns: 2,
-  verbose: false,
+  verbose: true,
   outputFile: 'measureRender',
 });
